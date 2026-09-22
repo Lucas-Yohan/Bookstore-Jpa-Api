@@ -1,0 +1,22 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+spring:
+  application:
+    name: lyalencar-rev-jpa
+
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: update # em prod use: validate
+    properties:
+      hibernate:
+        format_sql: true
+
+  datasource:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      url: jdbc:postgresql://localhost:5051/demo-spring-jpa
+      username: root
+      password: root
