@@ -1,11 +1,10 @@
 server:
-  port: 8080
+  port: 8079
   servlet:
     context-path: /api
 spring:
   application:
     name: lyalencar-rev-jpa
-
   jpa:
     open-in-view: false
     show-sql: true
@@ -14,9 +13,8 @@ spring:
     properties:
       hibernate:
         format_sql: true
-
   datasource:
-      dialect: org.hibernate.dialect.PostgreSQLDialect
-      url: jdbc:postgresql://localhost:5051/demo-spring-jpa
-      username: root
-      password: root
+    url: jdbc:mysql://localhost:5051/demo-spring-jpa?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Sao_Paulo&createDatabaseIfNotExist=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: appuser
+    password: 123456
