@@ -1,14 +1,12 @@
 package com.lyalencar.demo_spring_rev_jpa.controller;
 
 import com.lyalencar.demo_spring_rev_jpa.model.Autor;
-import com.lyalencar.demo_spring_rev_jpa.model.InfoAutor;
 import com.lyalencar.demo_spring_rev_jpa.service.AutorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -47,12 +45,6 @@ public class AutorController {
     public ResponseEntity<List<Autor>> obterPorNomeOuSobrenome(@RequestParam String nome) {
         List<Autor> obterAutor = autorService.encontrarPorNomeOuSobrenome(nome);
         return ResponseEntity.status(HttpStatus.OK).body(obterAutor);
-    }
-
-    @PostMapping("{id}/info")
-    public ResponseEntity<Autor> criarInfoAutor(@PathVariable Long id, InfoAutor infoAutor) {
-        Autor autor = autorService.saveInfoAutor(id, infoAutor);
-        return ResponseEntity.status(HttpStatus.OK).body(autor);
     }
 
     @GetMapping("")
