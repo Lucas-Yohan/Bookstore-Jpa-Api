@@ -1,11 +1,11 @@
 package com.lyalencar.demo_spring_rev_jpa.service;
 
 import com.lyalencar.demo_spring_rev_jpa.model.Autor;
-import com.lyalencar.demo_spring_rev_jpa.model.InfoAutor;
 import com.lyalencar.demo_spring_rev_jpa.repository.AutorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 @Service
@@ -40,11 +40,6 @@ public class AutorService {
     @Transactional(readOnly = true)
     public List<Autor> encontrarPorNomeOuSobrenome(String nome) {
         return autorRepository.findAllByNomeOrSobrenome(nome);
-    }
-
-    @Transactional()
-    public Autor saveInfoAutor(Long id, InfoAutor infoAutor) {
-        return null;
     }
 
     @Transactional(readOnly = true)
