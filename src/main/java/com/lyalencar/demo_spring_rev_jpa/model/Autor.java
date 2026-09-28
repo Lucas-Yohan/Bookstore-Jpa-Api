@@ -27,7 +27,7 @@ public class Autor implements Serializable {
     @Column(name = "sobrenome", nullable = false, length = 50)
     private String sobrenome;
 
-    @OneToOne(cascade = {CascadeType.PERSIST})
+    @OneToOne
     @JoinColumn(name = "info_autor_id_info")
     private InfoAutor infoAutor;
 
