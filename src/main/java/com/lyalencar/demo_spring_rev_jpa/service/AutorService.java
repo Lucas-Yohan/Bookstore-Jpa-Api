@@ -1,6 +1,7 @@
 package com.lyalencar.demo_spring_rev_jpa.service;
 
 import com.lyalencar.demo_spring_rev_jpa.model.Autor;
+import com.lyalencar.demo_spring_rev_jpa.projection.AutorInfoProjection;
 import com.lyalencar.demo_spring_rev_jpa.repository.AutorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,7 @@ public class AutorService {
     }
 
     @Transactional(readOnly = true)
-    public Autor encontrarPorId(Long id) {
+    public Autor encontrarAutorPorId(Long id) {
         return autorRepository.findById(id).orElseThrow(
                 () -> new RuntimeException("Autor não encontrado")
         );
@@ -43,7 +44,22 @@ public class AutorService {
     }
 
     @Transactional(readOnly = true)
-    public List<Autor> findByCargo(String cargo){
+    public List<Autor> encontrarPorCargo(String cargo) {
         return autorRepository.findByCargo(cargo);
+    }
+
+    @Transactional(readOnly = true)
+    public AutorInfoProjection encontrarAutorProjectionPorId(Long id){
+        return autorRepository.findAutorProjectionById(id);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Autor> todosOsAutores() {
+        return autorRepository.findAll();
+    }
+
+    @Transactional(readOnly = true)
+    public Long totalAutores() {
+        return autorRepository.count();
     }
 }
