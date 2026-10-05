@@ -5,5 +5,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 public interface InfoAutorRepository extends JpaRepository<InfoAutor, Long> {
-
 }
