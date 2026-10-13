@@ -1,14 +1,15 @@
 package com.lyalencar.demo_spring_rev_jpa.model;
 
 import jakarta.persistence.*;
-import lombok.ToString;
-
+import lombok.*;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "categorias")
-@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter @Setter
 public class Categoria implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,22 +18,6 @@ public class Categoria implements Serializable {
 
     @Column(name = "titulo", nullable = false, length = 100)
     private String titulo;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
 
     @Override
     public boolean equals(Object o) {
